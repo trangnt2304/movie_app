@@ -1,0 +1,1 @@
+//Triển khai remote data

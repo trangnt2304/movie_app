@@ -1,0 +1,3 @@
+extension StringExtesion on String{
+
+}
