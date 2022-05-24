@@ -1,6 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/common/constant/colors.dart';
+import 'package:movie_app/common/constant/text_style.dart';
+import 'package:movie_app/presentation/journey/home/widget/movie_rate_widget.dart';
+
+import '../../../../generated/l10n.dart';
+
+
 
 class NowShowingWidget extends StatelessWidget {
   const NowShowingWidget({
@@ -18,6 +24,9 @@ class NowShowingWidget extends StatelessWidget {
       children: [
         Container(
           padding: const EdgeInsets.symmetric(vertical: 8),
+          decoration: BoxDecoration(
+
+          ),
           child: CarouselSlider(
             options: CarouselOptions(
               aspectRatio: 2,
@@ -41,21 +50,29 @@ class NowShowingWidget extends StatelessWidget {
         const SizedBox(
           height: 4,
         ),
-        Text('Movie name'),
+        Text('Movie name',style: AppTextStyle.movieTitle,),
+        const SizedBox(
+          height: 4,
+        ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Text('Fantasy/Mystery',style: AppTextStyle.movieRateSub,),
+              SizedBox(width: 8,),
+              Text('2 hour',style: AppTextStyle.movieRateSub,)
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16).copyWith(top: 16),
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Column(
-                children: [Text('7.0'), Text('IMDB')],
-              ),
-              Column(
-                children: [Text('7.0'), Text('IMDB')],
-              ),
-              Column(
-                children: [Text('7.0'), Text('IMDB')],
-              )
+              MovieRateWidget(rate: '7.0',rateTitle: 'IMDB',),
+              MovieRateWidget(rate: '87%',rateTitle: 'Rotten Tomato',),
+              MovieRateWidget(rate: '79%',rateTitle: 'Metacritic',),
             ],
           ),
         ),
@@ -64,15 +81,15 @@ class NowShowingWidget extends StatelessWidget {
         ),
         ElevatedButton(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Text('Buy ticket'),
+            padding: const EdgeInsets.symmetric(horizontal: 32),
+            child: Text(S().lamthon),
           ),
           onPressed: () {},
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all(Color(AppColors.background)),
             shape: MaterialStateProperty.all(
               RoundedRectangleBorder(
-                side: BorderSide(color: Colors.white),
+                side: const BorderSide(color: Color(AppColors.white)),
                 borderRadius: BorderRadius.circular(30),
               ),
             ),
@@ -82,3 +99,5 @@ class NowShowingWidget extends StatelessWidget {
     );
   }
 }
+
+
