@@ -1,9 +1,8 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/common/constant/colors.dart';
-import 'package:movie_app/common/constant/images.dart';
 import 'package:movie_app/common/constant/text_style.dart';
 import 'package:movie_app/presentation/journey/home/widget/home_widget/movie_rate_widget.dart';
+import 'package:movie_app/presentation/journey/home/widget/home_widget/movie_rate_detail_widget.dart';
 import 'package:movie_app/presentation/journey/home/widget/home_widget/slider_widget.dart';
 import 'package:movie_app/presentation/journey/home/widget/home_widget/ticket_button_widget.dart';
 
@@ -37,29 +36,19 @@ class NowShowingWidget extends StatelessWidget {
           const SizedBox(
             height: 4,
           ),
-          const Text('Movie name',style: AppTextStyle.movieTitle,),
+          const Text('Trang meo meo',style: AppTextStyle.movieTitle,),
           const SizedBox(
             height: 4,
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                Text('Fantasy/Mystery',style: AppTextStyle.movieRateSub,),
-                SizedBox(width: 8,),
-                Text('2 hour',style: AppTextStyle.movieRateSub,)
-              ],
-            ),
-          ),
+          const MovieRateWidget(),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16).copyWith(top: 16),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: const [
-                MovieRateWidget(rate: '7.0',rateTitle: 'IMDB',),
-                MovieRateWidget(rate: '87%',rateTitle: 'Rotten Tomato',),
-                MovieRateWidget(rate: '79%',rateTitle: 'Metacritic',),
+                MovieRateDetailWidget(rate: '7.0',rateTitle: 'IMDB',),
+                MovieRateDetailWidget(rate: '87%',rateTitle: 'Rotten Tomato',),
+                MovieRateDetailWidget(rate: '79%',rateTitle: 'Metacritic',),
               ],
             ),
           ),
@@ -75,6 +64,7 @@ class NowShowingWidget extends StatelessWidget {
     );
   }
 }
+
 
 
 
