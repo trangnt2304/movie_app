@@ -32,8 +32,11 @@ class SliderWidget extends StatelessWidget {
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(16)),
               color: Colors.black,
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: AssetImage(AppImages.imgPicHomeScreen),
+              ),
             ),
-            child: Image.asset(AppImages.imgPicHomeScreen),
           ),
         ],
       ),
