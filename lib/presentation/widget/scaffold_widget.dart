@@ -12,7 +12,7 @@ class ScaffoldWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(AppColors.background),
+        backgroundColor: const Color(AppColors.background),
         elevation: 0,
         shadowColor: Colors.transparent,
         actions: [
