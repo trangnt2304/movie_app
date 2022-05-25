@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/common/constant/colors.dart';
 import 'package:movie_app/common/constant/images.dart';
 import 'package:movie_app/common/constant/text_style.dart';
-import 'package:movie_app/presentation/journey/home/widget/movie_rate_widget.dart';
-import 'package:movie_app/presentation/journey/home/widget/ticket_button_widget.dart';
+import 'package:movie_app/presentation/journey/home/widget/home_widget/movie_rate_widget.dart';
+import 'package:movie_app/presentation/journey/home/widget/home_widget/slider_widget.dart';
+import 'package:movie_app/presentation/journey/home/widget/home_widget/ticket_button_widget.dart';
 
 
 class NowShowingWidget extends StatelessWidget {
@@ -32,29 +33,7 @@ class NowShowingWidget extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Container(
-            padding: const EdgeInsets.symmetric(vertical: 8),
-            child: CarouselSlider(
-              options: CarouselOptions(
-                aspectRatio: 2,
-                autoPlay: true,
-                enlargeCenterPage: true,
-                viewportFraction: 0.7,
-                height: height / 2,
-              ),
-              items: [
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  margin: const EdgeInsets.all(4),
-                  width: width / 1.2,
-                  decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(16)),
-                      color: Colors.black),
-                  child: Image.asset(AppImages.imgPicHomeScreen),
-                ),
-              ],
-            ),
-          ),
+          SliderWidget(height: height, width: width),
           const SizedBox(
             height: 4,
           ),
@@ -90,11 +69,13 @@ class NowShowingWidget extends StatelessWidget {
           const TicketButtonWidget(
             colorButton: AppColors.chineseBlue,
           ),
+          const Icon(Icons.keyboard_arrow_down_sharp,color: Color(AppColors.movieSubTitle),),
         ],
       ),
     );
   }
 }
+
 
 
 
