@@ -38,6 +38,13 @@ dependencies:
   flutter_bloc: ^8.0.1
   carousel_slider: ^4.1.1
   intl_utils: ^2.6.1
+  retrofit: ^3.0.1+1
+  dio: ^4.0.6
+  logger: ^1.1.0
+  retrofit_generator: ^4.0.1
+  build_runner: ^2.1.11
+  json_serializable: ^6.2.0
+  json_annotation: ^4.5.0
 
 dev_dependencies:
   flutter_test:
