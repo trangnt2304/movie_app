@@ -3,8 +3,8 @@
 import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/presentation/journey/home/movie_detail/movie_detail_block/movie_detail_event.dart';
-import 'package:movie_app/presentation/journey/home/movie_detail/movie_detail_block/movie_detail_state.dart';
+import 'package:movie_app/presentation/journey/home/movie_detail/movie_detail_bloc/movie_detail_event.dart';
+import 'package:movie_app/presentation/journey/home/movie_detail/movie_detail_bloc/movie_detail_state.dart';
 
 class MovieDetailBloc extends Bloc<MovieDetailEvent,MovieDetailState> {
 
