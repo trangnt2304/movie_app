@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:movie_app/common/constant/text_style.dart';
 
@@ -14,9 +13,19 @@ class MovieRateWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: const [
-          Text('Fantasy/Mystery',style: AppTextStyle.movieRateSub,),
-          SizedBox(width: 8,),
-          Text('2 hour',style: AppTextStyle.movieRateSub,)
+          Text(
+            'Fantasy/Mystery',
+            style: AppTextStyle.movieRateSub,
+            overflow: TextOverflow.fade,
+          ),
+          SizedBox(
+            width: 8,
+          ),
+          Text(
+            '2 hour',
+            style: AppTextStyle.movieRateSub,
+            overflow: TextOverflow.fade,
+          )
         ],
       ),
     );
