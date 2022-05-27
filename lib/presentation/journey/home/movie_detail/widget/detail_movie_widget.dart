@@ -1,12 +1,13 @@
 
 import 'package:flutter/material.dart';
-import 'package:movie_app/common/constant/images.dart';
 import 'package:movie_app/common/constant/text_style.dart';
+import 'package:movie_app/database/model/movie/movie.dart';
 import 'package:movie_app/presentation/journey/home/widget/home_widget/movie_rate_detail_widget.dart';
 import 'package:movie_app/presentation/journey/home/widget/home_widget/movie_rate_widget.dart';
 
 class DetailMovieWidget extends StatelessWidget {
-  const DetailMovieWidget({Key? key, required this.height, required this.width}) : super(key: key);
+  const DetailMovieWidget({Key? key, required this.height, required this.width, required this.movie}) : super(key: key);
+  final Movie movie;
 
   final double height;
   final double width;
@@ -19,12 +20,12 @@ class DetailMovieWidget extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               color: Colors.red,
-              borderRadius: BorderRadius.all(Radius.circular(8)),
+              borderRadius: const BorderRadius.all(Radius.circular(8)),
               image: DecorationImage(
                 fit: BoxFit.cover,
-                image: AssetImage(AppImages.imgPicHomeScreen),
+                image: NetworkImage('http://image.tmdb.org/t/p/w500/${movie.poster_path}'),
               ),
             ),
             width: width / 4,
@@ -32,44 +33,48 @@ class DetailMovieWidget extends StatelessWidget {
           const SizedBox(
             width: 24,
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                'Trang meo meo',
-                style: AppTextStyle.movieTitle,
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              const MovieRateWidget(),
-              const SizedBox(
-                height: 16,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  MovieRateDetailWidget(
-                    rate: '7.0',
-                    rateTitle: 'IMDB',
-                  ),
-                  SizedBox(
-                    width: 16,
-                  ),
-                  MovieRateDetailWidget(
-                    rate: '87%',
-                    rateTitle: 'RottenTomato',
-                  ),
-                  SizedBox(
-                    width: 8,
-                  ),
-                  MovieRateDetailWidget(
-                    rate: '79%',
-                    rateTitle: 'Metacritic',
-                  ),
-                ],
-              ),
-            ],
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  movie.title??'',
+                  style: AppTextStyle.movieTitle,
+                  overflow: TextOverflow.ellipsis,
+
+                ),
+                const SizedBox(
+                  height: 8,
+                ),
+                const MovieRateWidget(),
+                const SizedBox(
+                  height: 16,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    MovieRateDetailWidget(
+                      rate: "${movie.vote_average ?? ''}",
+                      rateTitle: 'IMDB',
+                    ),
+                    const SizedBox(
+                      width: 16,
+                    ),
+                    MovieRateDetailWidget(
+                      rate: "${movie.vote_count ?? ''}",
+                      rateTitle: 'Vote Count',
+                    ),
+                    const SizedBox(
+                      width: 8,
+                    ),
+                    MovieRateDetailWidget(
+                      rate: "${movie.popularity ?? ''}",
+                      rateTitle: 'Popularity',
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ],
       ),

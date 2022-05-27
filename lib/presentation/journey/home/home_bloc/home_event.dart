@@ -1,4 +1,4 @@
-import 'package:movie_app/database/model/movie.dart';
+import 'package:movie_app/database/model/movie/movie.dart';
 
 abstract class HomeEvent {}
 

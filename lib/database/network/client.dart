@@ -1,4 +1,5 @@
-import 'package:movie_app/database/model/movie.dart';
+import 'package:movie_app/database/model/movie/movie.dart';
+import 'package:movie_app/database/network/respon_cast_data.dart';
 import 'package:movie_app/database/network/respondata.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
@@ -12,8 +13,9 @@ abstract class RestClient {
 
   @GET("popular?api_key=$apiKey&language=en-US&page=1")
   Future<ResponseData<List<Movie>>> getMovie();
+  @GET("{id}/credits?api_key=$apiKey&language=en-US")
+  Future<ResponseCastData> getCast(
+       @Path("id") int id
+      );
 }
 
-// @Query('staffId') String staffId,
-// @Query('newPassword') String newPassword,
-// @Query('confirmPassword') String confirmPassword

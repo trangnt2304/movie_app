@@ -8,7 +8,7 @@ class CommingSoonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Text("It's sunny here"),
+      child: Text("Test"),
     );
   }
 }
