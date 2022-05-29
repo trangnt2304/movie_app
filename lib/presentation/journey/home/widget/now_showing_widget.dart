@@ -6,6 +6,7 @@ import 'package:movie_app/common/constant/text_style.dart';
 import 'package:movie_app/presentation/journey/home/home_bloc/home_bloc.dart';
 import 'package:movie_app/presentation/journey/home/home_bloc/home_event.dart';
 import 'package:movie_app/presentation/journey/home/home_bloc/home_state.dart';
+import 'package:movie_app/presentation/journey/home/movie_detail/movie_detail_widget.dart';
 import 'package:movie_app/presentation/journey/home/widget/home_widget/movie_rate_widget.dart';
 import 'package:movie_app/presentation/journey/home/widget/home_widget/movie_rate_detail_widget.dart';
 import 'package:movie_app/presentation/journey/home/widget/home_widget/slider_widget.dart';
@@ -97,12 +98,20 @@ class NowShowingWidget extends StatelessWidget {
           ),
           BlocBuilder<HomeBloc, HomeState>(
             builder: (context, state) {
+              if(state is HomeDoneImgState){
               return TicketButtonWidget(
                 colorButton: AppColors.chineseBlue,
                 onPressed: () {
                   context.read<HomeBloc>().add(HomeOnClickEvent());
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (_) => MovieDetailWidget(
+                        movie: state.listMovie[state.page],
+                      )));
                 },
-              );
+              );}else{
+                return Container(
+                );
+              }
             },
           ),
           const Icon(

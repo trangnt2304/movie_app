@@ -8,9 +8,11 @@ class TicketButtonWidget extends StatelessWidget {
     Key? key,
     required this.colorButton,
     this.onPressed,
+    this.title,
   }) : super(key: key);
   final int colorButton;
   final VoidCallback? onPressed;
+  final String? title;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -18,7 +20,7 @@ class TicketButtonWidget extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 32),
           child: Text(
-            S().buyTickets,
+            title ?? S().buyTickets,
             style: AppTextStyle.movieRateTile
                 .copyWith(fontWeight: FontWeight.normal),
           ),

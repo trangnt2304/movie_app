@@ -8,7 +8,7 @@ class CinemaWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Text("It's rainy here"),
+      child: Text("Test"),
     );
   }
 }

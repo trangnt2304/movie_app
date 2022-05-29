@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/common/constant/colors.dart';
-import 'package:movie_app/common/constant/images.dart';
+import 'package:movie_app/database/model/movie/movie.dart';
 import 'package:movie_app/presentation/journey/home/movie_detail/movie_detail_bloc/movie_detail_bloc.dart';
 import 'package:movie_app/presentation/journey/home/movie_detail/widget/des_movie_detail_widget.dart';
 import 'package:movie_app/presentation/journey/home/movie_detail/widget/detail_movie_widget.dart';
 
 class MovieDetailWidget extends StatefulWidget {
-  const MovieDetailWidget({Key? key}) : super(key: key);
+  const MovieDetailWidget({Key? key, required this.movie}) : super(key: key);
+  final Movie movie;
 
   @override
   State<MovieDetailWidget> createState() => _MovieDetailWidgetState();
@@ -18,7 +19,7 @@ class _MovieDetailWidgetState extends State<MovieDetailWidget> {
 
   @override
   void initState() {
-    _bloc = MovieDetailBloc();
+    _bloc = MovieDetailBloc(widget.movie);
     super.initState();
   }
 
@@ -35,10 +36,10 @@ class _MovieDetailWidgetState extends State<MovieDetailWidget> {
               width: width,
               child: Container(
                 height: height / 3,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.cover,
-                    image: AssetImage(AppImages.imgPicHomeScreen),
+                    image: NetworkImage('http://image.tmdb.org/t/p/w500/${widget.movie.backdrop_path}'),
                   ),
                 ),
               ),
@@ -65,11 +66,11 @@ class _MovieDetailWidgetState extends State<MovieDetailWidget> {
                 ),
                 child: DetailMovieWidget(
                   width: width,
-                  height: height,
+                  height: height, movie: widget.movie,
                 ),
               ),
             ),
-            DescriptionMovieDetailWidget(height: height, width: width),
+            DescriptionMovieDetailWidget(height: height, width: width, movie: widget.movie,),
           ],
         ),
       ),

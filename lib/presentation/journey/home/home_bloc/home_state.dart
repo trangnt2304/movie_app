@@ -1,4 +1,5 @@
-import 'package:movie_app/database/model/movie.dart';
+import 'package:flutter/material.dart';
+import 'package:movie_app/database/model/movie/movie.dart';
 
 abstract class HomeState {}
 
@@ -29,7 +30,13 @@ class HomeErrorImgState extends HomeState {
 class HomeDoneImgState extends HomeState {
   final int page;
   final List<Movie> listMovie;
-  HomeDoneImgState({required this.page, required this.listMovie});
+  final Icon? customIcon;
+  final Widget? customSearchBar;
+  HomeDoneImgState(
+      {this.customIcon,
+      this.customSearchBar,
+      required this.page,
+      required this.listMovie});
 }
 
 class HomeSliderChangeState extends HomeState {

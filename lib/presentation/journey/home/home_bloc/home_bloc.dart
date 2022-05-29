@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/database/model/movie.dart';
+import 'package:movie_app/database/model/movie/movie.dart';
 import 'package:movie_app/database/network/client.dart';
 import 'package:movie_app/presentation/journey/home/home_bloc/home_event.dart';
 import 'package:movie_app/presentation/journey/home/home_bloc/home_state.dart';
@@ -11,7 +12,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   List<Movie> _listMovie = [];
   int _page = 0;
   final client = RestClient(Dio(BaseOptions(contentType: "application/json")));
-
+  Icon _customIcon = const Icon(Icons.search);
+  Widget _customSearchBar = const Text('Phim');
   HomeBloc() : super(HomeInitState()) {
     on<HomeInitEvent>(_onInitEvent);
     on<HomeOnClickEvent>(_onClickEvent);
@@ -51,7 +53,11 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   Future<void> _onDoneImgApi(
       HomeDoneImgEvent event, Emitter<HomeState> emit) async {
-    emit(HomeDoneImgState(listMovie: _listMovie, page: event.page));
+    emit(HomeDoneImgState(
+        listMovie: _listMovie,
+        page: event.page,
+        customIcon: _customIcon,
+        customSearchBar: _customIcon));
   }
 
   Future<void> _onSliderPageChange(
@@ -64,7 +70,10 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     final check = await client.getMovie();
     if (check.results != null) {
       _listMovie = check.results ?? [];
-      emit(HomeDoneImgState(listMovie: _listMovie, page: _page));
+      emit(HomeDoneImgState(
+        listMovie: _listMovie,
+        page: _page,
+      ));
     }
   }
 }
