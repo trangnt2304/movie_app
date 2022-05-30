@@ -13,7 +13,7 @@ abstract class RestClient {
   factory RestClient(Dio dio, {String baseUrl}) = _RestClient;
 
   @GET("popular?api_key=$apiKey&language=en-US&page=1")
-  Future<ResponseData<List<Movie>>> getMovie();
+  Future<ResponseData<List<MovieJson>>> getMovie();
 
   @GET("{movie_id}/credits?api_key=$apiKey&language=en-US&page=1")
   Future<ResponseCast<List<Cast>>> getCast(@Path("movie_id") int movie_id);

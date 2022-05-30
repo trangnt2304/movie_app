@@ -40,9 +40,9 @@ class NowShowingWidget extends StatelessWidget {
               height: 4,
             ),
             BlocBuilder<HomeBloc, HomeState>(builder: (context, state) {
-              if (state is HomeDoneImgState) {
+              if (state is HomeDoneMovieState) {
                 return Text(
-                  state.listMovie[state.page].title ?? '',
+                  state.listMovie[state.page].title,
                   textAlign: TextAlign.center,
                   style: AppTextStyle.movieTitle,
                 );
@@ -61,7 +61,7 @@ class NowShowingWidget extends StatelessWidget {
               padding:
                   const EdgeInsets.symmetric(horizontal: 16).copyWith(top: 16),
               child: BlocBuilder<HomeBloc, HomeState>(builder: (context, state) {
-                if (state is HomeDoneImgState) {
+                if (state is HomeDoneMovieState) {
                   return Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -92,7 +92,7 @@ class NowShowingWidget extends StatelessWidget {
             ),
             BlocBuilder<HomeBloc, HomeState>(
               builder: (context, state) {
-                if (state is HomeDoneImgState) {
+                if (state is HomeDoneMovieState) {
                   return TicketButtonWidget(
                     colorButton: AppColors.chineseBlue,
                     onPressed: () {

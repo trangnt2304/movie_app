@@ -1,3 +1,4 @@
+import 'package:movie_app/database/model/model/movie_model.dart';
 import 'package:movie_app/database/model/movie.dart';
 
 abstract class HomeState {}
@@ -12,28 +13,31 @@ class HomeOnClickState extends HomeState {
 }
 
 class HomeGetImgState extends HomeState {
-  final List<Movie> listMovie;
+  final List<MovieModel> listMovie;
   HomeGetImgState({required this.listMovie});
 }
 
-class HomeLoadingImgState extends HomeState {
-  final List<Movie> listMovie;
-  HomeLoadingImgState({required this.listMovie});
+class HomeLoadingImgState extends HomeState {}
+
+class HomeErrorMovieApiState extends HomeState {
+  final List<MovieModel> listMovie;
+  HomeErrorMovieApiState({required this.listMovie});
 }
 
-class HomeErrorImgState extends HomeState {
-  final List<Movie> listMovie;
-  HomeErrorImgState({required this.listMovie});
-}
-
-class HomeDoneImgState extends HomeState {
+class HomeDoneMovieState extends HomeState {
   final int page;
-  final List<Movie> listMovie;
-  HomeDoneImgState({required this.page, required this.listMovie});
+  final List<MovieModel> listMovie;
+  HomeDoneMovieState({required this.page, required this.listMovie});
 }
 
 class HomeSliderChangeState extends HomeState {
   final int page;
-  final List<Movie> listMovie;
+  final List<MovieModel> listMovie;
   HomeSliderChangeState({required this.listMovie, required this.page});
+}
+
+class HomeLoadFromDBState extends HomeState {
+  final int page;
+  final List<MovieModel>? listMovie;
+  HomeLoadFromDBState({this.listMovie, required this.page});
 }

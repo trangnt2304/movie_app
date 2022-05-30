@@ -26,7 +26,7 @@ class MovieDetailBloc extends Bloc<MovieDetailEvent,MovieDetailState> {
 
   FutureOr<void> _onInitEvent(MovieDetailInitEvent event, Emitter<MovieDetailState> emit) {
     emit(MovieDetailReadMoreState(isReadMore: _isReadMore));
-    _movieId = event.movie.id!;
+    _movieId = event.movie.id;
     loadingCastOnInit();
   }
 

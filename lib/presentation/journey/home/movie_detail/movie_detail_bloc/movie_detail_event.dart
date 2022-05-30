@@ -1,12 +1,12 @@
 
 import 'package:movie_app/database/model/list/actor.dart';
-import 'package:movie_app/database/model/movie.dart';
+import 'package:movie_app/database/model/model/movie_model.dart';
 
 abstract class MovieDetailEvent{}
 
 class MovieDetailInitEvent extends MovieDetailEvent{
 
-  final Movie movie;
+  final MovieModel movie;
 
   MovieDetailInitEvent({required this.movie});
 }

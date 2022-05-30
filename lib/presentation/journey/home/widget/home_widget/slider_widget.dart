@@ -23,7 +23,7 @@ class SliderWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: BlocBuilder<HomeBloc, HomeState>(builder: (context, state) {
-        if (state is HomeDoneImgState) {
+        if (state is HomeDoneMovieState) {
           return CarouselSlider(
             options: CarouselOptions(
               onPageChanged: (page, reason) {
