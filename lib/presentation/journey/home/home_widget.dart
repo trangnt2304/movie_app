@@ -64,17 +64,9 @@ class MyHomePage extends StatelessWidget {
           ),
           body: TabBarView(
             children: <Widget>[
-              BlocBuilder<HomeBloc, HomeState>(builder: (context, state) {
-                return NowShowingWidget(
-                  controller: controller,
-                  onPageChanged: (int page) {
-                    context.read<HomeBloc>().add(HomeDoneImgEvent(
-                          page: page,
-                          listMovie: [],
-                        ));
-                  },
-                );
-              }),
+              NowShowingWidget(
+                controller: controller,
+              ),
               const CinemaWidget(),
               const CommingSoonWidget(),
             ],

@@ -60,7 +60,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   }
 
   Future<void> loadImgOnInit() async {
-    emit(HomeLoadingImgState(listMovie: _listMovie));
+    emit(HomeLoadingImgState(listMovie: _listMovie));;
     final check = await client.getMovie();
     if (check.results != null) {
       _listMovie = check.results ?? [];

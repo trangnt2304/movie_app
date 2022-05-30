@@ -39,6 +39,28 @@ class _RestClient implements RestClient {
     return value;
   }
 
+  @override
+  Future<ResponseCast<List<Cast>>> getCast(movie_id) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch<Map<String, dynamic>>(_setStreamType<
+        ResponseCast<List<Cast>>>(Options(
+            method: 'GET', headers: _headers, extra: _extra)
+        .compose(_dio.options,
+            '${movie_id}/credits?api_key=e40e3108780dd1711cbbae5c9f2cfd52&language=en-US&page=1',
+            queryParameters: queryParameters, data: _data)
+        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = ResponseCast<List<Cast>>.fromJson(
+      _result.data!,
+      (json) => (json as List<dynamic>)
+          .map<Cast>((i) => Cast.fromJson(i as Map<String, dynamic>))
+          .toList(),
+    );
+    return value;
+  }
+
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&
         !(requestOptions.responseType == ResponseType.bytes ||
