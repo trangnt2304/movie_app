@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:movie_app/common/constant/colors.dart';
 import 'package:movie_app/database/local/database.dart';
-import 'package:movie_app/di/a.dart';
-import 'package:movie_app/di/test.dart';
 import 'journey/home/home_widget.dart';
 // import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 

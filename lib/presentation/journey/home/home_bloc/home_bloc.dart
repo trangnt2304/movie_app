@@ -1,10 +1,10 @@
-import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/database/local/database.dart';
 import 'package:movie_app/database/mapper/movie_mapper/mapper_movies.dart';
 import 'package:movie_app/database/model/model/movie_model.dart';
 import 'package:movie_app/database/model/movie.dart';
 import 'package:movie_app/database/network/client.dart';
+import 'package:movie_app/locator.dart';
 import 'package:movie_app/presentation/journey/home/home_bloc/home_event.dart';
 import 'package:movie_app/presentation/journey/home/home_bloc/home_state.dart';
 import 'package:bloc/bloc.dart';
@@ -15,11 +15,12 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   List<MovieJson> _listMovieJson = [];
 
   int _page = 0;
-  final client = RestClient(Dio(BaseOptions(contentType: "application/json")));
-  DatabaseHandler handler = DatabaseHandler();
+
+  final client = locator.get<RestClient>();
+  final dbHandler = locator.get<DatabaseHandler>();
 
   HomeBloc() : super(HomeInitState()) {
-    handler.initDB();
+    dbHandler.initDB();
     loadMovies();
     on<HomeInitEvent>(_onInitEvent);
     on<HomeOnClickEvent>(_onClickEvent);
@@ -90,7 +91,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   Future<void> loadFromDB() async {
      //Load DB
     final movieDBtoMovieModel = MovieEntityToMovieModel();
-    final listDBMovie = await handler.movies();
+    final listDBMovie = await dbHandler.movies();
     for(final movie in listDBMovie){
       _listMovieModel.add(movieDBtoMovieModel(movie));
     }
@@ -109,7 +110,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       for(final movie in _listMovieJson){
         final movieModel = movieJsonToModel(movie);
         _listMovieModel.add(movieModel);
-        handler.insertMovie(movieModelToEntity(movieModel));
+        dbHandler.insertMovie(movieModelToEntity(movieModel));
       }
       print('Load API 4: ${_listMovieModel.length}');
     }
