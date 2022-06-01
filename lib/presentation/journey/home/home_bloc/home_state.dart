@@ -12,12 +12,12 @@ class HomeOnClickState extends HomeState {
   HomeOnClickState({required this.isClick});
 }
 
-class HomeGetImgState extends HomeState {
+class HomeGetAPIState extends HomeState {
   final List<MovieModel> listMovie;
-  HomeGetImgState({required this.listMovie});
+  HomeGetAPIState({required this.listMovie});
 }
 
-class HomeLoadingImgState extends HomeState {}
+class HomeLoadingAPIState extends HomeState {}
 
 class HomeErrorMovieApiState extends HomeState {
   final List<MovieModel> listMovie;

@@ -24,10 +24,10 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     loadMovies();
     on<HomeInitEvent>(_onInitEvent);
     on<HomeOnClickEvent>(_onClickEvent);
-    on<HomeGetImgEvent>(_getImgEvent);
-    on<HomeLoadingImgEvent>(_onLoadingImgApi);
-    on<HomeErrorImgEvent>(_onErrorMovieApi);
-    on<HomeDoneImgEvent>(_onDoneMovieApi);
+    on<HomeGetAPIEvent>(_getAPIEvent);
+    on<HomeLoadingAPIEvent>(_onLoadingAPIApi);
+    on<HomeErrorAPIEvent>(_onErrorMovieApi);
+    on<HomeDoneAPIEvent>(_onDoneMovieApi);
     on<HomeSliderChangeEvent>(_onSliderPageChange);
 //    loadMovieOnInit();
   }
@@ -43,23 +43,23 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     emit(HomeOnClickState(isClick: _isClick));
   }
 
-  Future<void> _getImgEvent(
-      HomeGetImgEvent event, Emitter<HomeState> emit) async {
-    emit(HomeGetImgState(listMovie: _listMovieModel));
+  Future<void> _getAPIEvent(
+      HomeGetAPIEvent event, Emitter<HomeState> emit) async {
+    emit(HomeGetAPIState(listMovie: _listMovieModel));
   }
 
-  Future<void> _onLoadingImgApi(
-      HomeLoadingImgEvent event, Emitter<HomeState> emit) async {
-    emit(HomeGetImgState(listMovie: _listMovieModel));
+  Future<void> _onLoadingAPIApi(
+      HomeLoadingAPIEvent event, Emitter<HomeState> emit) async {
+    emit(HomeGetAPIState(listMovie: _listMovieModel));
   }
 
   Future<void> _onErrorMovieApi(
-      HomeErrorImgEvent event, Emitter<HomeState> emit) async {
+      HomeErrorAPIEvent event, Emitter<HomeState> emit) async {
     emit(HomeErrorMovieApiState(listMovie: _listMovieModel));
   }
 
   Future<void> _onDoneMovieApi(
-      HomeDoneImgEvent event, Emitter<HomeState> emit) async {
+      HomeDoneAPIEvent event, Emitter<HomeState> emit) async {
     emit(HomeDoneMovieState(listMovie: _listMovieModel, page: event.page));
   }
 
@@ -69,16 +69,11 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   }
 
   Future<void> loadMovies() async {
-    print('Bat dau load');
-    emit(HomeLoadingImgState());
-    print('Bat dau load tu db');
+    emit(HomeLoadingAPIState());
     await loadFromDB();
-    print('Load xong tu db');
 
     emitMovies();
-    // print('Load tiep API');
     await loadFromAPI();
-    print('Load xong API');
     emitMovies();
   }
 
@@ -89,30 +84,26 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   }
 
   Future<void> loadFromDB() async {
-     //Load DB
+    //Load DB
     final movieDBtoMovieModel = MovieEntityToMovieModel();
     final listDBMovie = await dbHandler.movies();
-    for(final movie in listDBMovie){
+    for (final movie in listDBMovie) {
       _listMovieModel.add(movieDBtoMovieModel(movie));
     }
   }
 
   Future<void> loadFromAPI() async {
-    print('Load API 1');
     final check = await client.getMovie();
-    print('Load API 2');
     if (check.results != null) {
-      print('Load API 3');
       _listMovieJson = check.results ?? [];
       final movieJsonToModel = MovieJsonToMovieModel();
       final movieModelToEntity = MovieModelToMovieEntity();
       _listMovieModel.clear();
-      for(final movie in _listMovieJson){
+      for (final movie in _listMovieJson) {
         final movieModel = movieJsonToModel(movie);
         _listMovieModel.add(movieModel);
         dbHandler.insertMovie(movieModelToEntity(movieModel));
       }
-      print('Load API 4: ${_listMovieModel.length}');
     }
   }
 }

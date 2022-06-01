@@ -27,7 +27,7 @@ class SliderWidget extends StatelessWidget {
           return CarouselSlider(
             options: CarouselOptions(
               onPageChanged: (page, reason) {
-                context.read<HomeBloc>().add(HomeDoneImgEvent(
+                context.read<HomeBloc>().add(HomeDoneAPIEvent(
                   page: page,
                   listMovie: [],
                 ));

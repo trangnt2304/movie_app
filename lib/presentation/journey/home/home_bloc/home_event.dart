@@ -12,25 +12,25 @@ class HomeOnClickEvent extends HomeEvent {
   HomeOnClickEvent({this.isClick});
 }
 
-class HomeGetImgEvent extends HomeEvent {
+class HomeGetAPIEvent extends HomeEvent {
   final List<MovieJson> listMovie;
-  HomeGetImgEvent({required this.listMovie});
+  HomeGetAPIEvent({required this.listMovie});
 }
 
-class HomeLoadingImgEvent extends HomeEvent {
+class HomeLoadingAPIEvent extends HomeEvent {
   final List<MovieModel>? listMovie;
-  HomeLoadingImgEvent({required this.listMovie});
+  HomeLoadingAPIEvent({required this.listMovie});
 }
 
-class HomeErrorImgEvent extends HomeEvent {
+class HomeErrorAPIEvent extends HomeEvent {
   final List<MovieModel>? listMovie;
-  HomeErrorImgEvent({required this.listMovie});
+  HomeErrorAPIEvent({required this.listMovie});
 }
 
-class HomeDoneImgEvent extends HomeEvent {
+class HomeDoneAPIEvent extends HomeEvent {
   final int page;
   final List<MovieModel>? listMovie;
-  HomeDoneImgEvent({required this.page, this.listMovie});
+  HomeDoneAPIEvent({required this.page, this.listMovie});
 }
 
 class HomeSliderChangeEvent extends HomeEvent {
