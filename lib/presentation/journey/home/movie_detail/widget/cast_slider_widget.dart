@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/common/constant/images.dart';
 import 'package:movie_app/common/constant/strings.dart';
-import 'package:movie_app/database/model/movie.dart';
+import 'package:movie_app/database/model/model/movie_model.dart';
 import 'package:movie_app/presentation/journey/home/movie_detail/movie_detail_bloc/movie_detail_bloc.dart';
 import 'package:movie_app/presentation/journey/home/movie_detail/movie_detail_bloc/movie_detail_state.dart';
 import 'package:movie_app/presentation/journey/home/movie_detail/widget/full_screen_img_widget.dart';
@@ -18,7 +17,7 @@ class CastSliderWidget extends StatelessWidget {
 
   final double height;
   final double width;
-  final Movie movie;
+  final MovieModel movie;
 
   @override
   Widget build(BuildContext context) {

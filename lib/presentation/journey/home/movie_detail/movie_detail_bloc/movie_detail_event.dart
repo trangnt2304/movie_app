@@ -1,29 +1,25 @@
-
 import 'package:movie_app/database/model/list/actor.dart';
-import 'package:movie_app/database/model/movie.dart';
+import 'package:movie_app/database/model/model/movie_model.dart';
 
-abstract class MovieDetailEvent{}
+abstract class MovieDetailEvent {}
 
-class MovieDetailInitEvent extends MovieDetailEvent{
-
-  final Movie movie;
+class MovieDetailInitEvent extends MovieDetailEvent {
+  final MovieModel movie;
 
   MovieDetailInitEvent({required this.movie});
 }
 
 class MovieDetailChangeReadMoreEvent extends MovieDetailEvent {
-
   final bool? isReadmore;
 
   MovieDetailChangeReadMoreEvent({this.isReadmore});
 }
 
-class MovieDetailLoadingCastEvent extends MovieDetailEvent{
+class MovieDetailLoadingCastEvent extends MovieDetailEvent {
   MovieDetailLoadingCastEvent();
 }
 
-class MovieDetailDoneLoadingCastEvent extends MovieDetailEvent{
+class MovieDetailDoneLoadingCastEvent extends MovieDetailEvent {
   List<Cast>? listCast;
   MovieDetailDoneLoadingCastEvent({this.listCast});
-
 }

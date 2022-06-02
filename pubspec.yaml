@@ -46,6 +46,8 @@ dependencies:
   json_serializable: ^6.2.0
   json_annotation: ^4.5.0
   sqflite: ^2.0.2+1
+  path_provider: ^2.0.10
+  get_it: ^7.2.0
 
 dev_dependencies:
   flutter_test:
@@ -76,6 +78,7 @@ flutter:
   assets:
     - assets/icons/
     - assets/images/
+
     - lib/l10n/
   #   - images/a_dot_ham.jpeg
 

@@ -1,3 +1,5 @@
+import 'package:movie_app/database/local/entity/movie_entity.dart';
+import 'package:movie_app/database/model/model/movie_model.dart';
 import 'package:movie_app/database/model/movie.dart';
 
 abstract class HomeEvent {}
@@ -10,29 +12,35 @@ class HomeOnClickEvent extends HomeEvent {
   HomeOnClickEvent({this.isClick});
 }
 
-class HomeGetImgEvent extends HomeEvent {
-  final List<Movie> listMovie;
-  HomeGetImgEvent({required this.listMovie});
+class HomeGetAPIEvent extends HomeEvent {
+  final List<MovieJson> listMovie;
+  HomeGetAPIEvent({required this.listMovie});
 }
 
-class HomeLoadingImgEvent extends HomeEvent {
-  final List<Movie> listMovie;
-  HomeLoadingImgEvent({required this.listMovie});
+class HomeLoadingAPIEvent extends HomeEvent {
+  final List<MovieModel>? listMovie;
+  HomeLoadingAPIEvent({required this.listMovie});
 }
 
-class HomeErrorImgEvent extends HomeEvent {
-  final List<Movie> listMovie;
-  HomeErrorImgEvent({required this.listMovie});
+class HomeErrorAPIEvent extends HomeEvent {
+  final List<MovieModel>? listMovie;
+  HomeErrorAPIEvent({required this.listMovie});
 }
 
-class HomeDoneImgEvent extends HomeEvent {
+class HomeDoneAPIEvent extends HomeEvent {
   final int page;
-  final List<Movie>? listMovie;
-  HomeDoneImgEvent({required this.page, this.listMovie});
+  final List<MovieModel>? listMovie;
+  HomeDoneAPIEvent({required this.page, this.listMovie});
 }
 
 class HomeSliderChangeEvent extends HomeEvent {
   final int page;
-  final List<Movie>? listMovie;
+  final List<MovieModel>? listMovie;
   HomeSliderChangeEvent({this.listMovie, required this.page});
+}
+
+class HomeLoadFromDBEvent extends HomeEvent {
+  final int page;
+  final List<MovieModel>? listMovie;
+  HomeLoadFromDBEvent({this.listMovie, required this.page});
 }

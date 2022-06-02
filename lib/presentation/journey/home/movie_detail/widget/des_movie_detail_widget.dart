@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/common/constant/colors.dart';
 import 'package:movie_app/common/constant/text_style.dart';
-import 'package:movie_app/database/model/movie.dart';
+import 'package:movie_app/database/model/model/movie_model.dart';
 import 'package:movie_app/presentation/journey/home/movie_detail/movie_detail_bloc/movie_detail_bloc.dart';
 import 'package:movie_app/presentation/journey/home/movie_detail/movie_detail_bloc/movie_detail_event.dart';
 import 'package:movie_app/presentation/journey/home/movie_detail/movie_detail_bloc/movie_detail_state.dart';
@@ -18,7 +18,7 @@ class DescriptionMovieDetailWidget extends StatelessWidget {
     this.onPressed,
     required this.movie,
   }) : super(key: key);
-  final Movie movie;
+  final MovieModel movie;
   final double height;
   final double width;
   final VoidCallback? onPressed;
@@ -42,7 +42,7 @@ class DescriptionMovieDetailWidget extends StatelessWidget {
                   shrinkWrap: true,
                   children: [
                     Text(
-                      movie.overview ?? '',
+                      movie.overview ,
                       style: AppTextStyle.movieRateSub,
                       maxLines: isReadMore ? null : 3,
                       overflow: isReadMore

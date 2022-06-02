@@ -3,16 +3,22 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/common/constant/colors.dart';
 import 'package:movie_app/common/constant/icons.dart';
 import 'package:movie_app/presentation/journey/home/home_bloc/home_bloc.dart';
-import 'package:movie_app/presentation/journey/home/home_bloc/home_event.dart';
-import 'package:movie_app/presentation/journey/home/home_bloc/home_state.dart';
 import 'package:movie_app/presentation/journey/home/widget/cinema_widget.dart';
 import 'package:movie_app/presentation/journey/home/widget/comming_soon_widget.dart';
 import 'package:movie_app/presentation/journey/home/widget/now_showing_widget.dart';
 
-class MyHomePage extends StatelessWidget {
+
+class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key}) : super(key: key);
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
   final PageController controller = PageController();
   final HomeBloc _homeBloc = HomeBloc();
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
