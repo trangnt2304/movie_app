@@ -17,7 +17,13 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final PageController controller = PageController();
-  final HomeBloc _homeBloc = HomeBloc();
+  late HomeBloc _homeBloc;
+
+  @override
+  void initState() {
+    _homeBloc = HomeBloc();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
