@@ -6,7 +6,9 @@ import 'package:movie_app/database/network/client.dart';
 GetIt locator = GetIt.instance;
 
 void setupLocator() {
-  locator.registerSingleton(RestClient(Dio(BaseOptions(contentType: "application/json"))));
+  locator.registerSingleton(
+      RestClient(Dio(BaseOptions(contentType: "application/json"))));
 
   locator.registerSingleton(DatabaseHandler());
 }
+

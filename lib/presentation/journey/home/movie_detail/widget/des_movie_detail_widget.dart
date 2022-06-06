@@ -42,7 +42,7 @@ class DescriptionMovieDetailWidget extends StatelessWidget {
                   shrinkWrap: true,
                   children: [
                     Text(
-                      movie.overview ,
+                      movie.overview,
                       style: AppTextStyle.movieRateSub,
                       maxLines: isReadMore ? null : 3,
                       overflow: isReadMore
@@ -117,3 +117,5 @@ class DescriptionMovieDetailWidget extends StatelessWidget {
     );
   }
 }
+
+

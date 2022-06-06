@@ -4,33 +4,47 @@ part 'actor.g.dart';
 
 @JsonSerializable()
 class Cast {
+  @JsonKey(name: 'adult')
   bool? adult;
+  @JsonKey(name: 'gender')
   int? gender;
+  @JsonKey(name: 'id')
   int? id;
-  String? known_for_department;
+  @JsonKey(name: 'known_for_department')
+  String? knownForDepartment;
+  @JsonKey(name: 'name')
   String? name;
-  String? original_name;
+  @JsonKey(name: 'voriginal_name')
+  String? originalName;
+  @JsonKey(name: 'popularity')
   double? popularity;
-  String? profile_path;
-  int? cast_id;
+  @JsonKey(name: 'profile_path')
+  String? profilePath;
+  @JsonKey(name: 'cast_id')
+  int? castId;
+  @JsonKey(name: 'character')
   String? character;
-  String? credit_id;
+  @JsonKey(name: 'credit_id')
+  String? creditId;
+  @JsonKey(name: 'order')
   int? order;
 
   Cast({
       this.adult,
       this.gender,
       this.id,
-      this.known_for_department,
+      this.knownForDepartment,
       this.popularity,
-      this.cast_id,
+      this.castId,
       this.character,
-      this.credit_id,
+      this.creditId,
       this.name,
       this.order,
-      this.original_name,
-      this.profile_path});
+      this.originalName,
+      this.profilePath});
 
   factory Cast.fromJson(Map<String, dynamic> json) => _$CastFromJson(json);
   Map<String, dynamic> toJson() => _$CastToJson(this);
 }
+
+

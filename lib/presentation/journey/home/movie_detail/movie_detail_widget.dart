@@ -9,7 +9,7 @@ import 'package:movie_app/presentation/journey/home/movie_detail/widget/des_movi
 import 'package:movie_app/presentation/journey/home/movie_detail/widget/detail_movie_widget.dart';
 
 class MovieDetailWidget extends StatefulWidget {
-  MovieDetailWidget({Key? key, required this.movie}) : super(key: key);
+  const MovieDetailWidget({Key? key, required this.movie}) : super(key: key);
   final MovieModel movie;
 
   @override
@@ -25,7 +25,6 @@ class _MovieDetailWidgetState extends State<MovieDetailWidget> {
     _bloc.add(MovieDetailInitEvent(movie: widget.movie));
     super.initState();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +43,7 @@ class _MovieDetailWidgetState extends State<MovieDetailWidget> {
                   image: DecorationImage(
                     fit: BoxFit.cover,
                     image: NetworkImage(
-                        AppStrings.linkImg + '${widget.movie.backdrop_path}'),
+                        AppStrings.linkImg + widget.movie.backdropPath),
                   ),
                 ),
               ),
@@ -79,3 +78,7 @@ class _MovieDetailWidgetState extends State<MovieDetailWidget> {
     );
   }
 }
+
+
+
+

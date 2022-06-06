@@ -12,3 +12,4 @@ class CinemaWidget extends StatelessWidget {
     );
   }
 }
+

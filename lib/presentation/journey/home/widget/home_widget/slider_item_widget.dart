@@ -22,3 +22,5 @@ class SliderItemWidget extends StatelessWidget {
     );
   }
 }
+
+

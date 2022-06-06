@@ -1,23 +1,24 @@
 
 class MovieModel{
   final int id;
-  final String poster_path;
+  final String posterPath;
   final String overview;
-  final String backdrop_path;
-  final String original_title;
+  final String backdropPath;
+  final String originalTitle;
   final double popularity;
   final String title;
-  final double vote_average;
-  final int vote_count;
+  final double voteAverage;
+  final int voteCount;
 
   const MovieModel(
       {required this.id,
-        required this.poster_path,
+        required this.posterPath,
         required this.overview,
-        required this.backdrop_path,
-        required this.original_title,
+        required this.backdropPath,
+        required this.originalTitle,
         required this.popularity,
         required this.title,
-        required this.vote_average,
-        required this.vote_count});
+        required this.voteAverage,
+        required this.voteCount});
 }
+

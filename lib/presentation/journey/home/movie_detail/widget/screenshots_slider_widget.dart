@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/common/constant/images.dart';
 import 'package:movie_app/common/constant/strings.dart';
 import 'package:movie_app/database/model/model/movie_model.dart';
-import 'package:movie_app/database/model/movie.dart';
 import 'package:movie_app/presentation/journey/home/movie_detail/widget/full_screen_img_widget.dart';
 
 class ScreenshotSliderWidget extends StatelessWidget {
@@ -28,8 +26,7 @@ class ScreenshotSliderWidget extends StatelessWidget {
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (_) => FullScreenImgWidget(
-                            imgLink: AppStrings.linkImg +
-                                '${movie.backdrop_path}',
+                            imgLink: AppStrings.linkImg + movie.backdropPath,
                           )));
                 },
                 child: Container(
@@ -40,7 +37,7 @@ class ScreenshotSliderWidget extends StatelessWidget {
                     image: DecorationImage(
                       fit: BoxFit.cover,
                       image: NetworkImage(
-                          AppStrings.linkImg + '${movie.backdrop_path}'),
+                          AppStrings.linkImg + movie.backdropPath),
                     ),
                   ),
                 ),
@@ -60,3 +57,4 @@ class ScreenshotSliderWidget extends StatelessWidget {
     );
   }
 }
+

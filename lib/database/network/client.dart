@@ -16,5 +16,9 @@ abstract class RestClient {
   Future<ResponseData<List<MovieJson>>> getMovie();
 
   @GET("{movie_id}/credits?api_key=$apiKey&language=en-US&page=1")
-  Future<ResponseCast<List<Cast>>> getCast(@Path("movie_id") int movie_id);
+  Future<ResponseCast<List<Cast>>> getCast(
+    @Path("movie_id") int movie_id,
+    @Query("page") String page,
+  );
 }
+

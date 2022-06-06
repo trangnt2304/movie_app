@@ -1,5 +1,8 @@
 {
     "@@locale": "en",
     "buyTickets" : "Buy Tickets",
-    "movies" : "Movies"
+    "movies" : "Movies",
+    "nowShowing" : "Now Showing",
+    "cinema" : "Cinema",
+    "comingSoon" : "Coming Soon"
 }

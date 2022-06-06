@@ -6,37 +6,37 @@ part of 'movie.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-MovieJson _$MovieFromJson(Map<String, dynamic> json) => MovieJson(
+MovieJson _$MovieJsonFromJson(Map<String, dynamic> json) => MovieJson(
       adult: json['adult'] as bool?,
-      backdrop_path: json['backdrop_path'] as String?,
-      genre_ids:
+      backdropPath: json['backdrop_path'] as String?,
+      genreIds:
           (json['genre_ids'] as List<dynamic>?)?.map((e) => e as int).toList(),
       id: json['id'] as int?,
-      original_language: json['original_language'] as String?,
-      original_title: json['original_title'] as String?,
+      originalLanguage: json['original_language'] as String?,
+      originalTitle: json['original_title'] as String?,
       overview: json['overview'] as String?,
       popularity: (json['popularity'] as num?)?.toDouble(),
-      poster_path: json['poster_path'] as String?,
-      release_date: json['release_date'] as String?,
+      posterPath: json['poster_path'] as String?,
+      releaseDate: json['release_date'] as String?,
       title: json['title'] as String?,
       video: json['video'] as bool?,
-      vote_average: (json['vote_average'] as num?)?.toDouble(),
-      vote_count: json['vote_count'] as int?,
+      voteAverage: (json['vote_average'] as num?)?.toDouble(),
+      voteCount: json['vote_count'] as int?,
     );
 
-Map<String, dynamic> _$MovieToJson(MovieJson instance) => <String, dynamic>{
-      'poster_path': instance.poster_path,
+Map<String, dynamic> _$MovieJsonToJson(MovieJson instance) => <String, dynamic>{
+      'poster_path': instance.posterPath,
       'adult': instance.adult,
       'overview': instance.overview,
-      'backdrop_path': instance.backdrop_path,
-      'release_date': instance.release_date,
-      'genre_ids': instance.genre_ids,
+      'backdrop_path': instance.backdropPath,
+      'release_date': instance.releaseDate,
+      'genre_ids': instance.genreIds,
       'id': instance.id,
-      'original_title': instance.original_title,
-      'original_language': instance.original_language,
+      'original_title': instance.originalTitle,
+      'original_language': instance.originalLanguage,
       'popularity': instance.popularity,
       'title': instance.title,
       'video': instance.video,
-      'vote_average': instance.vote_average,
-      'vote_count': instance.vote_count,
+      'vote_average': instance.voteAverage,
+      'vote_count': instance.voteCount,
     };

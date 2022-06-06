@@ -1,134 +1,135 @@
-final String tableMovies = 'movies';
+const String tableMovies = 'movies';
 
 class MovieFields {
   static final List<String> values = [
-    poster_path,
+    posterPath,
     adult,
     overview,
-    backdrop_path,
-    release_date,
-    genre_ids,
+    backdropPath,
+    releaseDate,
+    genreIds,
     id,
-    original_title,
-    original_language,
+    originalTitle,
+    originalLanguage,
     popularity,
     title,
     video,
-    vote_average,
-    vote_count
+    voteAverage,
+    voteCount
   ];
-  static final String poster_path = 'poster_path';
-  static final String adult = 'adult';
-  static final String overview = 'overview';
-  static final String backdrop_path = 'backdrop_path';
-  static final String release_date = 'release_date';
-  static final String genre_ids = 'genre_ids';
-  static final String id = '_id';
-  static final String original_title = 'original_title';
-  static final String original_language = 'original_language';
-  static final String popularity = 'popularity';
-  static final String title = 'title';
-  static final String video = 'video';
-  static final String vote_average = 'vote_average';
-  static final String vote_count = 'vote_count';
+  static const String posterPath = 'poster_path';
+  static const String adult = 'adult';
+  static const String overview = 'overview';
+  static const String backdropPath = 'backdrop_path';
+  static const String releaseDate = 'release_date';
+  static const String genreIds = 'genre_ids';
+  static const String id = '_id';
+  static const String originalTitle = 'original_title';
+  static const String originalLanguage = 'original_language';
+  static const String popularity = 'popularity';
+  static const String title = 'title';
+  static const String video = 'video';
+  static const String voteAverage = 'vote_average';
+  static const String voteCount = 'vote_count';
 }
 
 class Movie {
-  String? poster_path;
+  String? posterPath;
   bool? adult;
   String? overview;
-  String? backdrop_path;
-  String? release_date;
-  List<int>? genre_ids;
+  String? backdropPath;
+  String? releaseDate;
+  List<int>? genreIds;
   int? id;
-  String? original_title;
-  String? original_language;
+  String? originalTitle;
+  String? originalLanguage;
   double? popularity;
   String? title;
   bool? video;
-  double? vote_average;
-  int? vote_count;
+  double? voteAverage;
+  int? voteCount;
   Movie(
       {this.adult,
-      this.backdrop_path,
-      this.genre_ids,
+      this.backdropPath,
+      this.genreIds,
       this.id,
-      this.original_language,
-      this.original_title,
+      this.originalLanguage,
+      this.originalTitle,
       this.overview,
       this.popularity,
-      this.poster_path,
-      this.release_date,
+      this.posterPath,
+      this.releaseDate,
       this.title,
       this.video,
-      this.vote_average,
-      this.vote_count});
+      this.voteAverage,
+      this.voteCount});
 
   Movie copy({
-    String? poster_path,
+    String? posterPath,
     bool? adult,
     String? overview,
-    String? backdrop_path,
-    String? release_date,
-    List<int>? genre_ids,
+    String? backdropPath,
+    String? releaseDate,
+    List<int>? genreIds,
     int? id,
-    String? original_title,
-    String? original_language,
+    String? originalTitle,
+    String? originalLanguage,
     double? popularity,
     String? title,
     bool? video,
-    double? vote_average,
-    int? vote_count,
+    double? voteAverage,
+    int? voteCount,
   }) =>
       Movie(
         id: id ?? this.id,
         adult: adult ?? this.adult,
-        poster_path: poster_path ?? this.poster_path,
+        posterPath: posterPath ?? this.posterPath,
         overview: overview ?? this.overview,
-        backdrop_path: backdrop_path ?? this.backdrop_path,
-        release_date: release_date ?? this.release_date,
-        genre_ids: genre_ids ?? this.genre_ids,
-        original_title: original_title ?? this.original_title,
-        original_language: original_language ?? this.original_language,
+        backdropPath: backdropPath ?? this.backdropPath,
+        releaseDate: releaseDate ?? this.releaseDate,
+        genreIds: genreIds ?? this.genreIds,
+        originalTitle: originalTitle ?? this.originalTitle,
+        originalLanguage: originalLanguage ?? this.originalLanguage,
         popularity: popularity ?? this.popularity,
         title: title ?? this.title,
         video: video ?? this.video,
-        vote_average: vote_average ?? this.vote_average,
-        vote_count: vote_count ?? this.vote_count,
+        voteAverage: voteAverage ?? this.voteAverage,
+        voteCount: voteCount ?? this.voteCount,
       );
 
   Map<String, Object?> toJson() => {
-        MovieFields.adult: adult! ? 1 : 0,
-        MovieFields.backdrop_path: backdrop_path,
-        MovieFields.genre_ids: genre_ids,
+        MovieFields.adult: adult == true ? 1 : 0,
+        MovieFields.backdropPath: backdropPath,
+        MovieFields.genreIds: genreIds,
         MovieFields.id: id,
-        MovieFields.original_language: original_language,
-        MovieFields.original_title: original_title,
+        MovieFields.originalLanguage: originalLanguage,
+        MovieFields.originalTitle: originalTitle,
         MovieFields.overview: overview,
         MovieFields.popularity: popularity,
-        MovieFields.poster_path: poster_path,
-        MovieFields.release_date: release_date,
+        MovieFields.posterPath: posterPath,
+        MovieFields.releaseDate: releaseDate,
         MovieFields.title: title,
         MovieFields.video: video! ? 1 : 0,
-        MovieFields.vote_average: vote_average,
-        MovieFields.vote_count: vote_count,
+        MovieFields.voteAverage: voteAverage,
+        MovieFields.voteCount: voteCount,
       };
   static Movie fromJson(Map<String, Object?> json) => Movie(
         adult: json['adult'] as bool?,
-        backdrop_path: json['backdrop_path'] as String?,
-        genre_ids: (json['genre_ids'] as List<dynamic>?)
+        backdropPath: json['backdrop_path'] as String?,
+        genreIds: (json['genre_ids'] as List<dynamic>?)
             ?.map((e) => e as int)
             .toList(),
         id: json['id'] as int?,
-        original_language: json['original_language'] as String?,
-        original_title: json['original_title'] as String?,
+        originalLanguage: json['original_language'] as String?,
+        originalTitle: json['original_title'] as String?,
         overview: json['overview'] as String?,
         popularity: (json['popularity'] as num?)?.toDouble(),
-        poster_path: json['poster_path'] as String?,
-        release_date: json['release_date'] as String?,
+        posterPath: json['poster_path'] as String?,
+        releaseDate: json['release_date'] as String?,
         title: json['title'] as String?,
         video: json['video'] as bool?,
-        vote_average: (json['vote_average'] as num?)?.toDouble(),
-        vote_count: json['vote_count'] as int?,
+        voteAverage: (json['vote_average'] as num?)?.toDouble(),
+        voteCount: json['vote_count'] as int?,
       );
 }
+

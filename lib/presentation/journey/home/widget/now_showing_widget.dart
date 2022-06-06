@@ -14,20 +14,22 @@ import 'package:movie_app/presentation/journey/home/widget/home_widget/ticket_bu
 class NowShowingWidget extends StatelessWidget {
   const NowShowingWidget({
     Key? key,
-    required this.controller,
   }) : super(key: key);
 
-  final PageController controller;
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
     return Container(
       decoration: const BoxDecoration(
-        gradient: LinearGradient(colors: [
-          Color(AppColors.background),
-          Color(AppColors.chineseBlue),
-        ], begin: Alignment.topRight, end: Alignment.bottomRight),
+        gradient: LinearGradient(
+          colors: [
+            Color(AppColors.background),
+            Color(AppColors.chineseBlue),
+          ],
+          begin: Alignment.topRight,
+          end: Alignment.bottomRight,
+        ),
       ),
       child: SingleChildScrollView(
         child: Column(
@@ -60,17 +62,18 @@ class NowShowingWidget extends StatelessWidget {
             Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: 16).copyWith(top: 16),
-              child: BlocBuilder<HomeBloc, HomeState>(builder: (context, state) {
+              child:
+                  BlocBuilder<HomeBloc, HomeState>(builder: (context, state) {
                 if (state is HomeDoneMovieState) {
                   return Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       MovieRateDetailWidget(
-                        rate: '${state.listMovie[state.page].vote_average}',
+                        rate: '${state.listMovie[state.page].voteAverage}',
                         rateTitle: 'IMDB',
                       ),
                       MovieRateDetailWidget(
-                        rate: '${state.listMovie[state.page].vote_count}',
+                        rate: '${state.listMovie[state.page].voteCount}',
                         rateTitle: 'Vote Count',
                       ),
                       MovieRateDetailWidget(
@@ -118,3 +121,4 @@ class NowShowingWidget extends StatelessWidget {
     );
   }
 }
+

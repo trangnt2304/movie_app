@@ -31,3 +31,5 @@ class MovieRateWidget extends StatelessWidget {
     );
   }
 }
+
+

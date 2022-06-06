@@ -2,21 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/common/constant/colors.dart';
 import 'package:movie_app/common/constant/icons.dart';
+import 'package:movie_app/generated/l10n.dart';
 import 'package:movie_app/presentation/journey/home/home_bloc/home_bloc.dart';
 import 'package:movie_app/presentation/journey/home/widget/cinema_widget.dart';
 import 'package:movie_app/presentation/journey/home/widget/comming_soon_widget.dart';
 import 'package:movie_app/presentation/journey/home/widget/now_showing_widget.dart';
 
-
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key}) : super(key: key);
+  const MyHomePage({Key? key}) : super(key: key);
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final PageController controller = PageController();
   final HomeBloc _homeBloc = HomeBloc();
 
   @override
@@ -50,31 +49,29 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () {},
               ),
             ],
-            bottom: const TabBar(
-              indicatorPadding: EdgeInsets.symmetric(horizontal: 8),
-              indicatorColor: Color(AppColors.movieSubTitle),
+            bottom: TabBar(
+              indicatorPadding: const EdgeInsets.symmetric(horizontal: 8),
+              indicatorColor: const Color(AppColors.movieSubTitle),
               labelColor: Colors.white,
               unselectedLabelColor: Colors.white,
-              tabs: <Widget>[
+              tabs: [
                 Tab(
-                  text: "Now Showing",
+                  text: S().nowShowing,
                 ),
                 Tab(
-                  text: "Cinema",
+                  text: S().cinema,
                 ),
                 Tab(
-                  text: "Coming Soon",
+                  text: S().comingSoon,
                 ),
               ],
             ),
           ),
-          body: TabBarView(
+          body: const TabBarView(
             children: <Widget>[
-              NowShowingWidget(
-                controller: controller,
-              ),
-              const CinemaWidget(),
-              const CommingSoonWidget(),
+              NowShowingWidget(),
+              CinemaWidget(),
+              CommingSoonWidget(),
             ],
           ),
         ),
@@ -82,3 +79,4 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+

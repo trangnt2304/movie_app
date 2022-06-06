@@ -15,3 +15,4 @@ class ResponseData<T>{
   Map<String, dynamic> toJson(Object? Function(T value) toJsonT) =>
       _$ResponseDataToJson(this, toJsonT);
 }
+
