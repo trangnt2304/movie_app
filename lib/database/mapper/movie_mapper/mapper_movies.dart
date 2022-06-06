@@ -3,66 +3,67 @@ import 'package:movie_app/database/mapper/mapper.dart';
 import 'package:movie_app/database/model/model/movie_model.dart';
 import 'package:movie_app/database/model/movie.dart';
 
-class MovieModelToMovieEntity implements Mapper<MovieModel, MovieEntity> {
+class MovieModelToMovieEntityMapper implements Mapper<MovieModel, MovieEntity> {
   @override
   MovieEntity call(MovieModel object) {
     return MovieEntity(
         id: object.id,
-        poster_path: object.poster_path,
+        posterPath: object.posterPath,
         overview: object.overview,
-        backdrop_path: object.backdrop_path,
-        original_title: object.original_title,
+        backdropPath: object.backdropPath,
+        originalTitle: object.originalTitle,
         popularity: object.popularity,
         title: object.title,
-        vote_average: object.vote_average,
-        vote_count: object.vote_count);
+        voteAverage: object.voteAverage,
+        voteCount: object.voteCount);
   }
 }
 
-class MovieEntityToMovieModel implements Mapper<MovieEntity, MovieModel> {
+class MovieEntityToMovieModelMapper implements Mapper<MovieEntity, MovieModel> {
   @override
   MovieModel call(MovieEntity object) {
     return MovieModel(
         id: object.id,
-        poster_path: object.poster_path,
+        posterPath: object.posterPath,
         overview: object.overview,
-        backdrop_path: object.backdrop_path,
-        original_title: object.original_title,
+        backdropPath: object.backdropPath,
+        originalTitle: object.originalTitle,
         popularity: object.popularity,
         title: object.title,
-        vote_average: object.vote_average,
-        vote_count: object.vote_count);
+        voteAverage: object.voteAverage,
+        voteCount: object.voteCount);
   }
 }
 
-class MovieJsonToMovieModel implements Mapper<MovieJson, MovieModel> {
+class MovieJsonToMovieModelMapper implements Mapper<MovieJson, MovieModel> {
   @override
   MovieModel call(MovieJson object) {
     return MovieModel(
-        id: object.id??0,
-        poster_path: object.poster_path??'',
-        overview: object.overview??'',
-        backdrop_path: object.backdrop_path??'',
-        original_title: object.original_title??'',
-        popularity: object.popularity??0,
-        title: object.title??'',
-        vote_average: object.vote_average??0,
-        vote_count: object.vote_count??0);
+        id: object.id ?? 0,
+        posterPath: object.posterPath ?? '',
+        overview: object.overview ?? '',
+        backdropPath: object.backdropPath ?? '',
+        originalTitle: object.originalTitle ?? '',
+        popularity: object.popularity ?? 0,
+        title: object.title ?? '',
+        voteAverage: object.voteAverage ?? 0,
+        voteCount: object.voteCount ?? 0);
   }
 }
 
-class MovieModelToMovieJson implements Mapper<MovieModel, MovieJson> {
+class MovieModelToMovieJsonMapper implements Mapper<MovieModel, MovieJson> {
   @override
   MovieJson call(MovieModel object) {
     return MovieJson(
         id: object.id,
-        poster_path: object.poster_path,
+        posterPath: object.posterPath,
         overview: object.overview,
-        backdrop_path: object.backdrop_path,
-        original_title: object.original_title,
+        backdropPath: object.backdropPath,
+        originalTitle: object.originalTitle,
         popularity: object.popularity,
         title: object.title,
-        vote_average: object.vote_average,
-        vote_count: object.vote_count);
+        voteAverage: object.voteAverage,
+        voteCount: object.voteCount);
   }
 }
+

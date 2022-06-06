@@ -37,8 +37,7 @@ class DetailMovieWidget extends StatelessWidget {
               borderRadius: const BorderRadius.all(Radius.circular(8)),
               image: DecorationImage(
                 fit: BoxFit.cover,
-                image:
-                    NetworkImage(AppStrings.linkImg + '${movie.poster_path}'),
+                image: NetworkImage(AppStrings.linkImg + movie.posterPath),
               ),
             ),
             width: width / 4,
@@ -46,12 +45,12 @@ class DetailMovieWidget extends StatelessWidget {
           const SizedBox(
             width: 24,
           ),
-         Expanded(
+          Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  '${movie.title}',
+                  movie.title,
                   style: AppTextStyle.movieTitle,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -66,14 +65,14 @@ class DetailMovieWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     MovieRateDetailWidget(
-                      rate: '${movie.vote_average}',
+                      rate: '${movie.voteAverage}',
                       rateTitle: 'IMDB',
                     ),
                     const SizedBox(
                       width: 16,
                     ),
                     MovieRateDetailWidget(
-                      rate: '${movie.vote_count}',
+                      rate: '${movie.voteCount}',
                       rateTitle: 'Vote Count',
                     ),
                     const SizedBox(
@@ -93,3 +92,5 @@ class DetailMovieWidget extends StatelessWidget {
     );
   }
 }
+
+

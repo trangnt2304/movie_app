@@ -1,5 +1,4 @@
-
-abstract class Mapper<FROM, TO>{
+abstract class Mapper<FROM, TO> {
   TO call(FROM object);
 }
 

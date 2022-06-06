@@ -35,7 +35,7 @@ class CastSliderWidget extends StatelessWidget {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (_) => FullScreenImgWidget(
                                 imgLink: AppStrings.linkImg +
-                                    '${cast[index].profile_path}',
+                                    '${cast[index].profilePath}',
                               )));
                     },
                     child: Container(
@@ -46,7 +46,7 @@ class CastSliderWidget extends StatelessWidget {
                         image: DecorationImage(
                           fit: BoxFit.cover,
                           image: NetworkImage(AppStrings.linkImg +
-                              '${cast[index].profile_path}'),
+                              '${cast[index].profilePath}'),
                         ),
                       ),
                     ),
@@ -76,3 +76,5 @@ class CastSliderWidget extends StatelessWidget {
     );
   }
 }
+
+

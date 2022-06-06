@@ -1,5 +1,8 @@
 {
     "@@locale": "vi",
     "buyTickets" : "Mua vé",
-    "movies" : "Phim"
+    "movies" : "Phim",
+    "nowShowing" : "Đang chiếu",
+    "cinema" : "Tại rạp",
+    "comingSoon" : "Sắp chiếu"
 }

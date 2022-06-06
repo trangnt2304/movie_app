@@ -36,7 +36,7 @@ class MovieDetailBloc extends Bloc<MovieDetailEvent, MovieDetailState> {
 
   Future<void> loadingCastOnInit() async {
     emit(MovieDetailLoadingCastState());
-    final listCast = await client.getCast(_movieId);
+    final listCast = await client.getCast(_movieId,'1');
     if (listCast.cast != null) {
       _listCast = listCast.cast ?? [];
       emit(MovieDetailDoneLoadingCastState(
@@ -55,3 +55,6 @@ class MovieDetailBloc extends Bloc<MovieDetailEvent, MovieDetailState> {
         listCast: _listCast, isReadMore: _isReadMore));
   }
 }
+
+
+

@@ -1,4 +1,3 @@
-import 'package:movie_app/database/local/entity/movie_entity.dart';
 import 'package:movie_app/database/model/model/movie_model.dart';
 import 'package:movie_app/database/model/movie.dart';
 
@@ -44,3 +43,5 @@ class HomeLoadFromDBEvent extends HomeEvent {
   final List<MovieModel>? listMovie;
   HomeLoadFromDBEvent({this.listMovie, required this.page});
 }
+
+

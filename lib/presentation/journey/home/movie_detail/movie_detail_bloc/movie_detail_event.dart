@@ -23,3 +23,5 @@ class MovieDetailDoneLoadingCastEvent extends MovieDetailEvent {
   List<Cast>? listCast;
   MovieDetailDoneLoadingCastEvent({this.listCast});
 }
+
+

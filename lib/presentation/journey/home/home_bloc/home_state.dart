@@ -1,5 +1,4 @@
 import 'package:movie_app/database/model/model/movie_model.dart';
-import 'package:movie_app/database/model/movie.dart';
 
 abstract class HomeState {}
 
@@ -41,3 +40,5 @@ class HomeLoadFromDBState extends HomeState {
   final List<MovieModel>? listMovie;
   HomeLoadFromDBState({this.listMovie, required this.page});
 }
+
+

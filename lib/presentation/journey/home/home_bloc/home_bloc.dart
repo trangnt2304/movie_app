@@ -11,10 +11,10 @@ import 'package:bloc/bloc.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   bool _isClick = false;
-  List<MovieModel> _listMovieModel = [];
+  final List<MovieModel> _listMovieModel = [];
   List<MovieJson> _listMovieJson = [];
 
-  int _page = 0;
+  final int _page = 0;
 
   final client = locator.get<RestClient>();
   final dbHandler = locator.get<DatabaseHandler>();
@@ -70,7 +70,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   Future<void> loadMovies() async {
     emit(HomeLoadingAPIState());
-    await loadFromDB();
+    await loadFromDb();
 
     emitMovies();
     await loadFromAPI();
@@ -83,9 +83,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     }
   }
 
-  Future<void> loadFromDB() async {
+  Future<void> loadFromDb() async {
     //Load DB
-    final movieDBtoMovieModel = MovieEntityToMovieModel();
+    final movieDBtoMovieModel = MovieEntityToMovieModelMapper();
     final listDBMovie = await dbHandler.movies();
     for (final movie in listDBMovie) {
       _listMovieModel.add(movieDBtoMovieModel(movie));
@@ -96,14 +96,15 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     final check = await client.getMovie();
     if (check.results != null) {
       _listMovieJson = check.results ?? [];
-      final movieJsonToModel = MovieJsonToMovieModel();
-      final movieModelToEntity = MovieModelToMovieEntity();
+      final movieJsonToModelMapper = MovieJsonToMovieModelMapper();
+      final movieModelToEntityMapper = MovieModelToMovieEntityMapper();
       _listMovieModel.clear();
       for (final movie in _listMovieJson) {
-        final movieModel = movieJsonToModel(movie);
+        final movieModel = movieJsonToModelMapper(movie);
         _listMovieModel.add(movieModel);
-        dbHandler.insertMovie(movieModelToEntity(movieModel));
+        dbHandler.insertMovie(movieModelToEntityMapper(movieModel));
       }
     }
   }
 }
+

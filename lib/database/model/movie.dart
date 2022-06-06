@@ -4,50 +4,51 @@ part 'movie.g.dart';
 
 @JsonSerializable()
 class MovieJson {
-  @JsonKey()
-  String? poster_path;
-  @JsonKey()
+  @JsonKey(name: 'poster_path')
+  String? posterPath;
+  @JsonKey(name: 'adult')
   bool? adult;
-  @JsonKey()
+  @JsonKey(name: 'overview')
   String? overview;
-  @JsonKey()
-  String? backdrop_path;
-  @JsonKey()
-  String? release_date;
-  @JsonKey()
-  List<int>? genre_ids;
-  @JsonKey()
+  @JsonKey(name: 'backdrop_path')
+  String? backdropPath;
+  @JsonKey(name: 'release_date')
+  String? releaseDate;
+  @JsonKey(name: 'genre_ids')
+  List<int>? genreIds;
+  @JsonKey(name: 'id')
   int? id;
-  @JsonKey()
-  String? original_title;
-  @JsonKey()
-  String? original_language;
-  @JsonKey()
+  @JsonKey(name: 'original_title')
+  String? originalTitle;
+  @JsonKey(name: 'original_language')
+  String? originalLanguage;
+  @JsonKey(name: 'popularity')
   double? popularity;
-  @JsonKey()
+  @JsonKey(name: 'title')
   String? title;
-  @JsonKey()
+  @JsonKey(name: 'video')
   bool? video;
-  @JsonKey()
-  double? vote_average;
-  @JsonKey()
-  int? vote_count;
+  @JsonKey(name: 'vote_averag')
+  double? voteAverage;
+  @JsonKey(name: 'vote_count')
+  int? voteCount;
   MovieJson(
       {this.adult,
-      this.backdrop_path,
-      this.genre_ids,
+      this.backdropPath,
+      this.genreIds,
       this.id,
-      this.original_language,
-      this.original_title,
+      this.originalLanguage,
+      this.originalTitle,
       this.overview,
       this.popularity,
-      this.poster_path,
-      this.release_date,
+      this.posterPath,
+      this.releaseDate,
       this.title,
       this.video,
-      this.vote_average,
-      this.vote_count});
+      this.voteAverage,
+      this.voteCount});
 
-  factory MovieJson.fromJson(Map<String, dynamic> json) => _$MovieFromJson(json);
-  Map<String, dynamic> toJson() => _$MovieToJson(this);
+  factory MovieJson.fromJson(Map<String, dynamic> json) => _$MovieJsonFromJson(json);
+  Map<String, dynamic> toJson() => _$MovieJsonToJson(this);
 }
+

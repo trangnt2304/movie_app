@@ -18,15 +18,14 @@ class MovieRateDetailWidget extends StatelessWidget {
           rate ?? '',
           style: AppTextStyle.movieRateTile,
           overflow: TextOverflow.fade,
-
         ),
         Text(
           rateTitle ?? '',
           style: AppTextStyle.movieRateSub,
           overflow: TextOverflow.clip,
-
         ),
       ],
     );
   }
 }
+

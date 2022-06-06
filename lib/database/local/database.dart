@@ -35,12 +35,12 @@ class DatabaseHandler {
         id: maps[i]['id'],
         popularity: maps[i]['popularity'],
         overview: maps[i]['overview'],
-        original_title: maps[i]['original_title'],
-        poster_path: maps[i]['poster_path'],
+        originalTitle: maps[i]['original_title'],
+        posterPath: maps[i]['poster_path'],
         title: maps[i]['title'],
-        vote_average: maps[i]['vote_average'],
-        vote_count: maps[i]['vote_count'],
-        backdrop_path: maps[i]['backdrop_path'],
+        voteAverage: maps[i]['vote_average'],
+        voteCount: maps[i]['vote_count'],
+        backdropPath: maps[i]['backdrop_path'],
       );
     });
   }
@@ -67,3 +67,4 @@ class DatabaseHandler {
     );
   }
 }
+

@@ -28,9 +28,9 @@ class SliderWidget extends StatelessWidget {
             options: CarouselOptions(
               onPageChanged: (page, reason) {
                 context.read<HomeBloc>().add(HomeDoneAPIEvent(
-                  page: page,
-                  listMovie: [],
-                ));
+                      page: page,
+                      listMovie: [],
+                    ));
               },
               aspectRatio: 2,
               autoPlay: true,
@@ -40,7 +40,7 @@ class SliderWidget extends StatelessWidget {
             ),
             items: List.generate(state.listMovie.length, (index) {
               return GestureDetector(
-                onTap: (){
+                onTap: () {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -50,7 +50,7 @@ class SliderWidget extends StatelessWidget {
                 child: SliderItemWidget(
                   width: width,
                   imgLink:
-                      AppStrings.linkImg+'${state.listMovie[index].poster_path}',
+                      AppStrings.linkImg + state.listMovie[index].posterPath,
                 ),
               );
             }),
@@ -68,3 +68,5 @@ class SliderWidget extends StatelessWidget {
     );
   }
 }
+
+
